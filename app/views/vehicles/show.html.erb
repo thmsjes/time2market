@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Stock number:</strong>
+  <strong>Stock Number:</strong>
   <%= @vehicle.stock_number %>
 </p>
 
@@ -18,6 +18,14 @@
 <p>
   <strong>Model:</strong>
   <%= @vehicle.model %>
+</p>
+
+<p>
+  <strong>Days in process:</strong>
+  
+  <% days = (Time.now - @vehicle.created_at)/86400  %>
+  <%= number_with_precision(days, precision: 2)%>
+  
 </p>
 
 <%= link_to 'Edit', edit_vehicle_path(@vehicle) %> |
